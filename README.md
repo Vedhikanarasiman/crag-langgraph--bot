@@ -22,7 +22,7 @@ ResearchMind:
 ---
 
 ##  Architecture
-
+```text
 User Question
      ↓
 [Node 1] Query Rewriter
