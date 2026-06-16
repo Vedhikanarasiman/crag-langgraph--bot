@@ -1,0 +1,30 @@
+# Virtual environment
+venv/
+
+# ChromaDB (too large for GitHub)
+chroma_db/
+
+# Environment variables (contains API keys — never push this)
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code settings
+.vscode/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Evaluation outputs
+eval_results.json
+
+# Data folder (PDFs too large for GitHub)
+data/papers/
