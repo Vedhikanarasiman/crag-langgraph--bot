@@ -23,34 +23,33 @@ ResearchMind:
 
 ##  Architecture
 
-                 User Question
-                     ↓
+User Question
+     ↓
 [Node 1] Query Rewriter
-Rewrites vague questions into detailed search queries
-                     ↓
+     Rewrites vague questions into detailed search queries
+     ↓
 [Node 2] Retriever
-Fetches top 5 semantically similar chunks from ChromaDB
-                     ↓
+     Fetches top 5 semantically similar chunks from ChromaDB
+     ↓
 [Node 3] Relevance Grader
-LLM grades each chunk — filters irrelevant ones
-        ↓                    ↓
-    [Relevant]          [Not Relevant]
-        ↓                     ↓
-        ↓           [Node 4] Web Fallback
-        ↓          DuckDuckGo search as backup
-        ↓                    ↓
-      [Node 5] Answer Generator
-Groq Llama 3.3 70B generates cited answer
-                    ↓
-     [Node 6] Hallucination Checker
+     LLM grades each chunk — filters irrelevant ones
+     ↓                    ↓
+[Relevant]          [Not Relevant]
+     ↓                    ↓
+     ↓             [Node 4] Web Fallback
+     ↓              DuckDuckGo search as backup
+     ↓                    ↓
+[Node 5] Answer Generator
+     Groq Llama 3.3 70B generates cited answer
+     ↓
+[Node 6] Hallucination Checker
      Verifies every claim is grounded in retrieved context
-            ↓                    ↓
-       [Grounded]          [Not Grounded]
-            ↓                    ↓
-           END       loops back to Answer Generator (max 2 retries)
-            ↓
-    Final Answer + Source Citations
-
+     ↓                    ↓
+[Grounded]          [Not Grounded]
+     ↓                    ↓
+   END              loops back to Answer Generator
+     ↓
+Final Answer + Source Citations
 
 This pattern is called **Corrective RAG (CRAG)** — a well-known 
 advanced RAG architecture that self-corrects retrieval before generation.
