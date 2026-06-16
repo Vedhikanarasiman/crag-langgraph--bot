@@ -50,7 +50,7 @@ User Question
    END              loops back to Answer Generator
      ↓
 Final Answer + Source Citations
-
+```
 This pattern is called **Corrective RAG (CRAG)** — a well-known 
 advanced RAG architecture that self-corrects retrieval before generation.
 
